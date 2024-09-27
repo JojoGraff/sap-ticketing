@@ -14,6 +14,6 @@ export class FetchApiController {
   })
   @ApiResponse({ status: 400, description: 'Name is required.' })
   async getData() {
-    return await this.fetchApiService.fetchData();
+    return await this.fetchApiService.fetchData({ $top: 1 });
   }
 }
