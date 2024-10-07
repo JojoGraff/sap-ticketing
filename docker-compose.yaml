@@ -1,0 +1,17 @@
+version: '1'
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production  # Build the production stage of the Dockerfile
+    ports:
+      - "3000:3000"       # Expose port 3000 to access the app
+    env_file:
+      - .env              # Load environment variables from .env file
+    restart: always        # Automatically restart the container if it stops
+    networks:
+      - app-network
+
+networks:
+  app-network:
